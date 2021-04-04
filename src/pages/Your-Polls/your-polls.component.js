@@ -7,7 +7,7 @@ import { createStructuredSelector } from 'reselect';
 
 import { connect } from 'react-redux';
 import './your-polls.styles.scss'
-
+import PollView from '../../components/polls-view/polls-view.component'
 
 
 
@@ -27,27 +27,37 @@ const Yourpolls = ({currentDB}) => {
     
     
     return(
-        <div className='collection-preview'>
-         <h>public polls</h>
-          <div className='preview'>
-            {publicDB
-        .
-              map(item => (
-                
-                <Poll lang={item} />
-              ))}
-          </div>
+
+ 
+<div >
+<PollView DB={currentDB}></PollView>
 
 
-          <h>private polls</h>
-          <div className='preview'>
-            {privateDB
-              .map(item => (
-                
-                <Poll lang={item}/>
-              ))}
-          </div>
-        </div>
+</div>
+
+
+        // <div className='collection-preview'>
+        //  <h>public polls</h>
+        //   <div className='preview'>
+        //     {publicDB
+        // .
+        //       map(item => (
+        //         <div className='collection-preview'>
+        //         <Poll lang={item} /></div>
+        //       ))}
+        //   </div>
+
+
+        //   <h>private polls</h>
+        //   <div className='preview'>
+        //     {privateDB
+        //       .map(item => (
+        //         <div className='collection-preview'>
+        //         <Poll lang={item}/>
+        //         </div>
+        //       ))}
+        //   </div>
+        // </div>
     )
               };
       

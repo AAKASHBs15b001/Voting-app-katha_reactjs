@@ -1,0 +1,10 @@
+.homepage-poll {
+    display: flex;
+    justify-content: space-between;
+    margin-left : 30px;
+    margin-top:10px;
+    background-color: green;
+    
+    
+    
+  }

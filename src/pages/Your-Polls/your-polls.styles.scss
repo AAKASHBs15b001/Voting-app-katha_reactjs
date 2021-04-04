@@ -3,18 +3,13 @@
     flex-direction: row;
     margin-bottom: 300px;
     margin-left: 20px;
+    margin-top: 30px;
+    background-color: violet;
   
     .title {
       font-size: 28px;
       margin-bottom: 25px;
     }
   
-    .preview {
-      display: flex;
-      justify-content: space-between;
-      margin-left : 30px;
-      margin-top:10px
-      
-      
-    }
+    
   }

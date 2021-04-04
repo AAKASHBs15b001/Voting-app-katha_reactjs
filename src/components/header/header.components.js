@@ -10,12 +10,16 @@ import './header.styles.scss'
 
 
 const Header = ({ currentUser }) => (
-    console.log(currentUser),
-  <div className='header'>
   
+  
+  <div className='header'>
+   
   <div className='options'>
     
-    {currentUser ? (
+    {
+    
+    
+    currentUser ?(
       <div className='option' onClick={() => auth.signOut()}>
         SIGN OUT
       </div>
@@ -29,6 +33,17 @@ const Header = ({ currentUser }) => (
 <Link className='option' to='/create-polls'>
         Create-polls
       </Link>
+
+      <Link className='option' to='/your-polls'>
+        yourpolls
+      </Link>
+
+      <Link className='option' to='/'>
+        homepage
+      </Link>
+
+
+
     </div>
 
 

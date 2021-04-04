@@ -7,8 +7,7 @@ const INITIAL_STATE = {
     Question:'',
     options:[],
     formated_data:[],
-    publicdatabase:[],
-    type:''
+    publicdatabase:[]
 }
 
 
@@ -41,21 +40,20 @@ const createpublicPOLLreducer = (state = INITIAL_STATE, action) => {
             publicdatabase:action.payload
           };
 
-        case CreatepollActiontypes.Create_PRIPOLLL:
+        case CreatepollActiontypes.Create_PUBPOLLL:
             return {
               ...state,
-              formated_data:formatofData(action.payload,'Private'),
+              formated_data:formatofData(action.payload,'Public'),
               Question:[],
               options:[]
             };
-            case CreatepollActiontypes.Create_PUBPOLLL:
+            case CreatepollActiontypes.Create_PRIPOLLL:
               return {
                 ...state,
-                formated_data:formatofData(action.payload,'Public'),
+                formated_data:formatofData(action.payload,'private'),
                 Question:[],
                 options:[]
               };
-          
 
             case CreatepollActiontypes.UPDATE_Question:
               return {

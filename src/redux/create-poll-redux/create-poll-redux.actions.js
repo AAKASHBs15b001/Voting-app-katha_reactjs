@@ -36,6 +36,9 @@ export const additem= items=> (
     type: CreatepollActiontypes.Create_PRIPOLLL,
     payload:items
   }  
+
+
+  
   );
 
 

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route, Redirect, Link } from 'react-router-dom';
 
 import './App.css';
-
+import PollView from './components/polls-view/polls-view.component';
 import SignInAndSignUpPage from './pages/sign-in-page/sign-in-page.component';
 
 import { connect } from 'react-redux';
@@ -18,7 +18,7 @@ import Header from './components/header/header.components';
 import Poll from './components/poll/poll.component';
 import TimeComponent from './components/lifecycle-component/lifecycle.component'
 import Yourpolls from './pages/Your-Polls/your-polls.component';
-import HomePage from './components/poll/poll.component';
+import HomePages from './pages/HomePage/HomePage.component';
 import PollQuestions from './components/create-polls/create-polls.component';
 import {selectPublicDB} from './redux/create-poll-redux/create-poll-redux.selectors'
 // Declaring poll question and answers
@@ -73,9 +73,16 @@ class App extends Component{
     console.log('overall',this.props.currentDB)
     console.log('pubic',this.props.currentDB.filter(item=>item!==null).filter(item=>item[0].type=='Public'))
     console.log('private',this.props.currentDB.filter(item=>item!==null).filter(item=>item[0].type=='private'))
+
+
+
+    
 		return(
 			
       <div>
+
+        
+        
         <Header></Header>    
         <Switch>
           <Route
@@ -83,7 +90,7 @@ class App extends Component{
             path='/signin'
             render={() =>
               this.props.User ? (
-                <HomePage></HomePage>    
+                <Redirect to='/your-polls' />
 
               ) : (
                 <SignInAndSignUpPage />
@@ -104,9 +111,22 @@ class App extends Component{
             exact
             path='/'
             render={() =>
-              this.props.currentDB.filter(item=>item!==null).filter(item=>item[0].type=='Public').map(item=><Poll lang={item}></Poll>)}
+              this.props.User?(<PollView DB={this.props.currentDB.filter(item=>item!==null)}></PollView>):(<PollView DB={this.props.currentDB.filter(item=>item!==null).filter(item=>item[0].type=='Public')}></PollView>)}
             
           />
+
+
+         <Route
+            exact
+            path='/home'
+            
+            render={() =>
+              this.props.User?(this.props.currentDB.filter(item=>item!==null).map(item=><div className='homepage-poll'><Poll lang={item}></Poll></div>)):(this.props.currentDB.filter(item=>item!==null).filter(item=>item[0].type=='Public').map(item=><Poll lang={item}></Poll>))}
+            
+            
+          />
+
+
 
 
 

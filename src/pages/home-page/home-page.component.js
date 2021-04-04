@@ -1,10 +1,13 @@
 import React from 'react';
 
-import Poll from '../../components/redux/poll.component';
-const HomePage = () => (
+import { connect } from 'react-redux';
+
+
+const HomePages = () => (
   <div className='homepage'>
-      <Poll></Poll>
+      <h1>sss</h1>
   </div>
 );
 
-export default HomePage;
+
+export default HomePages;

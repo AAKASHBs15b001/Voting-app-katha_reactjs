@@ -17,7 +17,6 @@ const rootReducer = combineReducers(
   {votepoll: vote_result_Reducer,
     user: userReducer,
     createPoll: createpublicPOLLreducer
-
 }
 
   );
